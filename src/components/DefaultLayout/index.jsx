@@ -1,5 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import AppBar from "./AppBar";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const DefaultLayout = ({ component: Component, ...rest }) => {
   return (
@@ -7,13 +9,9 @@ const DefaultLayout = ({ component: Component, ...rest }) => {
       {...rest}
       render={(matchProps) => (
         <div className="DefaultLayout">
-          <div data-testid="header" className="Header">
-            Header
-          </div>
+          <CssBaseline />
+          <AppBar />
           <Component {...matchProps} />
-          <div data-testid="footer" className="Footer">
-            Footer
-          </div>
         </div>
       )}
     />

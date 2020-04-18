@@ -7,7 +7,6 @@ const TestComponent = () => <div data-testid="content">Test Component</div>;
 
 describe("DefaultLayout", () => {
   let header;
-  let footer;
   let content;
 
   beforeEach(() => {
@@ -15,17 +14,13 @@ describe("DefaultLayout", () => {
       <DefaultLayout exact path="/" component={TestComponent} />
     );
     header = getByTestId("header");
-    footer = getByTestId("footer");
     content = getByTestId("content");
   });
 
   test("should contain header", () => {
-    expect(header).toHaveTextContent("Header");
-  });
-  test("should contain footer", () => {
-    expect(footer).toHaveTextContent("Footer");
+    expect(header).toBeInTheDocument();
   });
   test("should contain chosen component", () => {
-    expect(content).toHaveTextContent("Test Component");
+    expect(content).toBeInTheDocument();
   });
 });
