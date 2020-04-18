@@ -1,9 +1,18 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { renderWithRouter } from "./setupTests";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+import App from "./App";
+
+describe("routing", () => {
+  test("render homepage on '/' route", () => {
+    const { history } = renderWithRouter(<App />);
+
+    expect(history.location.pathname).toEqual("/");
+  });
+  test("when route doesn't match, redirect to '/'", async () => {
+    const { history } = renderWithRouter(<App />, {
+      route: "/THIS_ROUTE_IS_INVALID",
+    });
+    expect(history.location.pathname).toEqual("/");
+  });
 });
