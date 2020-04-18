@@ -10,14 +10,14 @@ import { render } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 
 export function renderWithRouter(
-  ui,
+  element,
   {
     route = "/",
     history = createMemoryHistory({ initialEntries: [route] }),
   } = {}
 ) {
   return {
-    ...render(<Router history={history}>{ui}</Router>),
+    ...render(<Router history={history}>{element}</Router>),
     history,
   };
 }
