@@ -1,5 +1,6 @@
 import React from "react";
+import PersonForm from "../components/PersonForm/PersonForm";
 
-export const Home = () => <div>Home</div>;
+export const Home = () => <PersonForm />;
 
 export default Home;
