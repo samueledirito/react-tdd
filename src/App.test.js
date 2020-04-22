@@ -1,7 +1,7 @@
 import React from "react";
-import { renderWithRouter } from "./setupTests";
+import { renderWithRouter } from "setupTests";
 
-import App from "./App";
+import App from "App";
 
 describe("routing", () => {
   test("render homepage on '/' route", () => {

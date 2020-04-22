@@ -1,15 +1,7 @@
 import React from "react";
-import {
-  render,
-  fireEvent,
-  waitFor,
-  prettyDOM,
-  waitForElement,
-  act,
-} from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 
-import userEvent from "@testing-library/user-event";
-import PersonForm from "./PersonForm";
+import PersonForm from "components/PersonForm";
 
 describe("PersonForm", () => {
   test("should be rendered", () => {
@@ -34,11 +26,13 @@ describe("PersonForm", () => {
     await fireEvent.blur(nameInput);
 
     expect(await findByText(/required/i)).not.toBeNull();
+    expect(submitButton).toBeDisabled();
 
     await fireEvent.change(nameInput, {
       target: { name: "personName", value: "Samuele" },
     });
 
     expect(await findByText(/required/i)).not.toBeNull();
+    expect(submitButton).toBeEnabled();
   });
 });

@@ -1,5 +1,4 @@
 import React from "react";
-import { Route } from "react-router-dom";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -77,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AppAppBar({ component: Component, ...rest }) {
+export default function DefaultLayout({ children }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -161,10 +160,7 @@ export default function AppAppBar({ component: Component, ...rest }) {
       >
         <div className={classes.drawerHeader} />
 
-        <Route
-          {...rest}
-          render={(matchProps) => <Component {...matchProps} />}
-        />
+        {children}
       </main>
     </div>
   );

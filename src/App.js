@@ -1,14 +1,16 @@
 import React from "react";
-import { Switch, Redirect } from "react-router-dom";
-import Home from "./screen/Home";
-import DefaultLayout from "./components/DefaultLayout";
+import { Switch, Redirect, Route } from "react-router-dom";
+import Home from "screen/Home";
+import DefaultLayout from "components/DefaultLayout";
 
 function App() {
   return (
-    <Switch>
-      <DefaultLayout exact path="/" component={Home} />
-      <Redirect to="/" />
-    </Switch>
+    <DefaultLayout>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Redirect to="/" />
+      </Switch>
+    </DefaultLayout>
   );
 }
 

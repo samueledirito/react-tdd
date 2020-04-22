@@ -1,12 +1,11 @@
 import React from "react";
+import { render, fireEvent } from "@testing-library/react";
 
-import DefaultLayout from ".";
-import { renderWithRouter } from "../../setupTests";
-import { fireEvent, wait } from "@testing-library/react";
+import DefaultLayout from "components/DefaultLayout";
 
 const TestComponent = () => <div>Test Component</div>;
 
-describe("DefaultLayout", () => {
+describe("<DefaultLayout />", () => {
   let expectedSnapshot;
   let header;
   let content;
@@ -14,8 +13,10 @@ describe("DefaultLayout", () => {
   let chevron;
 
   beforeEach(() => {
-    const { getByTestId, asFragment } = renderWithRouter(
-      <DefaultLayout exact path="/" component={TestComponent} />
+    const { getByTestId, asFragment } = render(
+      <DefaultLayout>
+        <TestComponent />
+      </DefaultLayout>
     );
     header = getByTestId("header");
     content = getByTestId("content");
@@ -31,6 +32,7 @@ describe("DefaultLayout", () => {
   test("should contain header", () => {
     expect(header).toBeInTheDocument();
   });
+
   test("should contain chosen component", () => {
     expect(content).toBeInTheDocument();
   });

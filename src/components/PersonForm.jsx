@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form } from "formik";
 import Button from "@material-ui/core/Button";
 import * as yup from "yup";
-import TextField from "../formik/TextField";
+import TextField from "formik/TextField";
 
 const validationSchema = yup.object().shape({
   personName: yup.string().required(),
