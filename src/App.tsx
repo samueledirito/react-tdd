@@ -3,7 +3,7 @@ import { Switch, Redirect, Route } from "react-router-dom";
 import Home from "screen/Home";
 import DefaultLayout from "components/DefaultLayout";
 
-function App() {
+const App: React.FC = () => {
   return (
     <DefaultLayout>
       <Switch>
@@ -12,6 +12,6 @@ function App() {
       </Switch>
     </DefaultLayout>
   );
-}
+};
 
 export default App;

@@ -2,7 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core";
-import { default as MUITextField } from "@material-ui/core/TextField";
+import {
+  default as MUITextField,
+  TextFieldProps as MuiTextFieldProps,
+} from "@material-ui/core/TextField";
 import { useField } from "formik";
 
 const useStyles = makeStyles(() => ({
@@ -11,7 +14,14 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const TextField = ({ name, ...props }) => {
+type TextFieldProps = MuiTextFieldProps & { name: string };
+
+const TextField: React.FC<TextFieldProps> = ({
+  name,
+  ...props
+}: {
+  name: string;
+}) => {
   const classes = useStyles();
 
   const [field, meta] = useField(name);

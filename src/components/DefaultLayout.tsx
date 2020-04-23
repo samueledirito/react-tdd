@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DefaultLayout({ children }) {
+const DefaultLayout: React.FC = ({ children }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -164,4 +164,6 @@ export default function DefaultLayout({ children }) {
       </main>
     </div>
   );
-}
+};
+
+export default DefaultLayout;

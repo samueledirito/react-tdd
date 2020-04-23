@@ -8,7 +8,9 @@ const validationSchema = yup.object().shape({
   personName: yup.string().required(),
 });
 
-export default ({ person = { personName: "" } }) => {
+const PersonForm: React.FC<{ person?: any }> = ({
+  person = { personName: "" },
+}) => {
   return (
     <Formik
       validationSchema={validationSchema}
@@ -31,3 +33,5 @@ export default ({ person = { personName: "" } }) => {
     </Formik>
   );
 };
+
+export default PersonForm;
