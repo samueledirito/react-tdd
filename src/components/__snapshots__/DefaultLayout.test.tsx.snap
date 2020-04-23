@@ -45,7 +45,7 @@ exports[`<DefaultLayout /> should be created 1`] = `
           class="MuiTypography-root MuiTypography-h6 MuiTypography-noWrap"
           data-testid="app-title"
         >
-          Persistent drawer
+          React Best Practices
         </h6>
       </div>
     </header>
@@ -332,17 +332,25 @@ exports[`<DefaultLayout /> should be created 1`] = `
         </ul>
       </div>
     </div>
-    <main
-      class="makeStyles-content-9"
+    <div
+      class="MuiContainer-root makeStyles-content-9 MuiContainer-maxWidthLg"
       data-testid="content"
     >
       <div
         class="makeStyles-drawerHeader-8"
       />
-      <div>
-        Test Component
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-10 MuiGrid-grid-md-8 MuiGrid-grid-lg-6 MuiGrid-grid-xl-6"
+        >
+          <div>
+            Test Component
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
   </div>
 </DocumentFragment>
 `;

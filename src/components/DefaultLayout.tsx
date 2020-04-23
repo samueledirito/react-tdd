@@ -16,6 +16,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import { Container, Grid } from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -110,7 +111,7 @@ const DefaultLayout: React.FC = ({ children }) => {
             </IconButton>
           </div>
           <Typography variant="h6" noWrap data-testid="app-title">
-            Persistent drawer
+            React Best Practices
           </Typography>
         </Toolbar>
       </AppBar>
@@ -152,7 +153,7 @@ const DefaultLayout: React.FC = ({ children }) => {
           ))}
         </List>
       </Drawer>
-      <main
+      <Container
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
@@ -160,8 +161,12 @@ const DefaultLayout: React.FC = ({ children }) => {
       >
         <div className={classes.drawerHeader} />
 
-        {children}
-      </main>
+        <Grid container justify="center">
+          <Grid item xs={12} sm={10} md={8} lg={6} xl={6}>
+            {children}
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 };

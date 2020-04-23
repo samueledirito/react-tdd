@@ -24,6 +24,7 @@ const PersonForm: React.FC<{ person?: any }> = ({
             name="personName"
             data-testid="personName"
             placeholder="Name"
+            helperText="Name of this person"
           />
           <Button type="submit" disabled={!dirty || !isValid}>
             Save

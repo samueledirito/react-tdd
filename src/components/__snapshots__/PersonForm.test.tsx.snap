@@ -6,27 +6,32 @@ exports[`PersonForm should be rendered 1`] = `
     action="#"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root makeStyles-field-1"
+      class="MuiFormControl-root MuiTextField-root"
       data-testid="personName"
     >
       <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
         data-shrink="false"
       >
         Name
       </label>
       <div
-        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
       >
         <input
           aria-invalid="false"
-          class="MuiInputBase-input MuiInput-input"
+          class="MuiInputBase-input MuiFilledInput-input"
           name="personName"
           placeholder="Name"
           type="text"
           value=""
         />
       </div>
+      <p
+        class="MuiFormHelperText-root MuiFormHelperText-contained"
+      >
+        Name of this person
+      </p>
     </div>
     <button
       class="MuiButtonBase-root MuiButton-root MuiButton-text Mui-disabled Mui-disabled"
