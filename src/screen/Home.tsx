@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { useSelector } from "react-redux";
 
-import { RootState } from "index";
+import { RootState } from "ducks/store";
 
 export const Home: React.FC = () => {
   const profile = useSelector((state: RootState) => state.profile);

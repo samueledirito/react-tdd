@@ -10,9 +10,9 @@ describe("routing", () => {
     expect(history.location.pathname).toEqual("/");
   });
   test("when route doesn't match, redirect to '/'", async () => {
-    const { history } = renderWithProviders()(<App />, {
+    const { history } = renderWithProviders({
       route: "/THIS_ROUTE_IS_INVALID",
-    });
+    })(<App />);
     expect(history.location.pathname).toEqual("/");
   });
 });
