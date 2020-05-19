@@ -1,14 +1,20 @@
-import { createStore } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createLogger } from "redux-logger";
+import axios from "axios";
+import { handleRequests } from "@redux-requests/core";
+import { createDriver } from "@redux-requests/axios"; // or another driver
 
-interface Action {
-  type: string;
-}
+const logger = createLogger({});
 
-export const INITIAL_STATE = { isAuthenticated: false, profile: null };
-const rootReducer = (state = INITIAL_STATE, action: Action) => {
-  if (!action.type) throw Error("action type not provided");
-  return state;
-};
-export type RootState = ReturnType<typeof rootReducer>;
+const { requestsReducer, requestsMiddleware } = handleRequests({
+  driver: createDriver(axios),
+});
 
-export default createStore(rootReducer, INITIAL_STATE);
+const reducers = combineReducers({
+  requests: requestsReducer,
+});
+
+export default createStore(
+  reducers,
+  applyMiddleware(...requestsMiddleware, logger)
+);

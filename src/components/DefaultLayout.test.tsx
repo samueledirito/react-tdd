@@ -6,11 +6,11 @@ import DefaultLayout from "components/DefaultLayout";
 const TestComponent = () => <div>Test Component</div>;
 
 describe("<DefaultLayout />", () => {
-  let expectedSnapshot;
-  let header;
-  let content;
-  let hamburger;
-  let chevron;
+  let expectedSnapshot : DocumentFragment;
+  let header: HTMLElement;
+  let content: HTMLElement;
+  let hamburger: HTMLElement;
+  let chevron: HTMLElement;
 
   beforeEach(() => {
     const { getByTestId, asFragment } = render(

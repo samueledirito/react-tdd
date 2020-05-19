@@ -31,7 +31,7 @@ export function renderWithRouter<P extends object>(
 }
 
 export function renderWithStore<P extends object>(
-  component: React.ComponentType<P>,
+  component: React.ComponentType<P> | React.ReactElement,
   state = INITIAL_STATE,
   store = configureStore(state)
 ) {
